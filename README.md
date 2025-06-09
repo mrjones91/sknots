@@ -12,6 +12,8 @@ What's better than STONKS?!
 
 ## 🚀 See you on the MOON!
 
+<img src="https://gifdb.com/images/thumbnail/flava-flav-fight-power-w794klgf9ke79lsd.gif" alt="FIGHT THE POWER!" />
+
 ## Notes
 
 MaterialIcons
