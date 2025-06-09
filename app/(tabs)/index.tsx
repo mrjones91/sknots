@@ -5,8 +5,34 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+import { useEffect, useState } from 'react';
+import { Button } from '@react-navigation/elements';
+import { Collapsible } from '@/components/Collapsible';
+
+const responseType: any = { price: 123 };
 
 export default function HomeScreen() {
+  const [price, setPrice] = useState(0);
+
+  useEffect(()=>{
+    const url = 'https://api.api-ninjas.com/v1/bitcoin';
+    const options = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Api-Key': `${process.env.API_NINJAS_KEY}`
+        }
+        };
+    fetch(url, options)
+        .then((response: any)=>response.json())
+        .then((data)=>{
+            console.log(data)
+            setPrice(data.price);
+        })
+        .catch((e)=>console.log(e))
+  },[]);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -17,40 +43,28 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">1 BTC = 1 BTC </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="subtitle">1 BTC = ${(price * 100 )/ 100} USD </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
+        <Button>HODL <IconSymbol size={28} name="house.and.flag.circle" color={'white'} /></Button>
+        <Button>TURN UP <IconSymbol size={28} name="house" color={'white'} /></Button>
+        
+        <Collapsible title="RIZZionary">
+            <ThemedText type="subtitle">HODL <IconSymbol size={28} name="house.and.flag.circle" color={'white'} /></ThemedText>
+            <ThemedText type="default">
+                HODL brings up your Bitcoin Addy so you can get some more coin that you Hold Onto for Dear Life!
+            </ThemedText>
+            <ThemedText type="subtitle">TURN UP <IconSymbol size={28} name="house" color={'white'} /></ThemedText>
+            <ThemedText type="default">
+                TURN UP and send some Bitcoin to make payments and turn yo clique up!
+            </ThemedText>
+        </Collapsible>
+
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+      
     </ParallaxScrollView>
   );
 }

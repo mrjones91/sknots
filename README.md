@@ -1,3 +1,29 @@
+# SKNOTS
+
+What's better than STONKS?!
+
+### SKNOTS!!!
+
+<img src="https://api.memegen.link/images/stonks/sknots.jpg" alt="sknots" />
+
+## Key Features
+
+🛡️HODL & TURN UP 🤑 with SKNOTS!
+
+## 🚀 See you on the MOON!
+
+## Notes
+
+MaterialIcons
+bungalow
+bolt
+catching-pokemon
+currency-bitcoin
+cyclone
+
+APIs
+https://www.api-ninjas.com/api/bitcoin
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
