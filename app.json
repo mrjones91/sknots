@@ -33,7 +33,10 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      ["@breeztech/breez-sdk-spark-react-native", {
+        "enablePasskey": true
+      }]
     ],
     "experiments": {
       "typedRoutes": true

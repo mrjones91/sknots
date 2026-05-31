@@ -11,7 +11,7 @@
     "lint": "expo lint"
   },
   "dependencies": {
-    "@breeztech/react-native-breez-sdk": "^0.8.0",
+    "@breeztech/breez-sdk-spark-react-native": "^0.15.0",
     "@expo/vector-icons": "^14.1.0",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",

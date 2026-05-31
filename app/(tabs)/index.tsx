@@ -16,12 +16,13 @@ export default function HomeScreen() {
   const [price, setPrice] = useState(0);
 
   useEffect(()=>{
+	  console.log(`${process.env.API_NINJAS_KEY}`);
     const url = 'https://api.api-ninjas.com/v1/bitcoin';
     const options = {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
-        'X-Api-Key': `${process.env.API_NINJAS_KEY}`
+        'X-Api-Key': `${process.env.EXPO_PUBLIC_API_NINJAS_KEY}`
         }
         };
     fetch(url, options)
